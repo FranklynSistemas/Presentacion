@@ -91,7 +91,38 @@ function Ejemplos (num,title){
 	switch(num){
 		case 1:
 			Titulo = 'Distribución Binomial';
-			var str = "Ejemplo Binomial";
+			var str = `<p class="pModal">
+							Tenmos el siguiente caso: Calcule la probabilidad de que en una familia que tiene cuatro hijos, tres de ellos sean "niños"
+					   </p>
+					   <br>
+					   <p class="pModal">
+					   		Debido a que es una distribución binomial, los hijos sólo pueden ser niños o niñas.
+					   </p>
+					   <br>
+					   <p class="pModal">	Por lo tanto al tener dos posibles, la probabilidad es del 50/50 entoces: </p>
+					   <br>
+					   <div align="left">
+					   <ul>
+					   		<li>k = 3, Nos preguntan cual es la probabilidad de tener 3 "niños"</li>
+					   		<li>n = 4, El espectro muestral, la familia tiene 4 hijos</li>
+					   		<li>p = 0,5, La probabilidad de exito, 50% dado en decimales</li>
+					   		<li>q = 0,5, La probabilidad de error, 50% dado en decimales</li>
+					   </ul>
+					   <p class="pModal">La formula que nos permite encontrar la probabilidad binomial es: <img class="imgModal" src="img/FormulaBinomial.PNG">
+					    ahora bastara con sustituir los valores de la formula con los qué, ya hemos optenido del ejericio.
+					   </p>
+					   <input type="number" class="form-control inputModal" id="k" placeholder="K" required>
+					   <input type="number" class="form-control inputModal" id="n" placeholder="n" required>
+					   <input type="number" class="form-control inputModal" id="p" placeholder="p" required>
+					   <input type="number" class="form-control inputModal" id="q" placeholder="q" required>
+					   <p class="pModel">Nos piden P(X=3) = <input type="number" class="inputModalResult" id="Result" placeholder="Resultado">
+					   <input type="text" class="inputModalResult" id="ResultPorc" placeholder="Porcentaje">
+					   <button type="button" id="CalculaBinomial" class="btn btn-success">Calcular</button>
+					   </p>
+						
+					   </div>
+
+					   `;
 		break;
 		case 2:
 			Titulo = 'Distribución de Poisson';
@@ -110,7 +141,32 @@ function Ejemplos (num,title){
          </div>`
 
 $('#Ejemplos').html(head+str+footer);
+
+$('#CalculaBinomial').click(function(){
+	$('#Result').val(CalculaBinomial($('#k').val(),$('#n').val(),$('#p').val(),$('#q').val()));
+	$('#ResultPorc').val(CalculaBinomial($('#k').val(),$('#n').val(),$('#p').val(),$('#q').val())*100 + "%");
+})
+
+$()
+
 }Ejemplos(1,'Distribución Binomial');
 
+function CalculaBinomial(k,n,p,q){
+	return combinatoria(n,k)*Math.pow(p,k)*Math.pow(q,n-k);
+}
+
+function factorial(num){
+	var factorial = 1;
+ 
+        for (var i=1; i <= num; i++){
+            factorial *= i;
+        }
+ 
+        return factorial;
+}
+
+function combinatoria(n,k){
+	return factorial(n)/(factorial(k)*factorial(n-k));
+}
 
 })
