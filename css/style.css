@@ -12,10 +12,21 @@ p {
 	text-align: justify;
 }
 
-img {
+#Graficas {
 	width: 530px;
 	height: 330px;
 }
+
+#Formulas {
+	width: 273px;
+	height: 39px;
+}
+
+#Formula {
+	width: 163px;
+	height: 21px;
+}
+
 .imgModal {
 	width: 200px; 
 	height:70px;

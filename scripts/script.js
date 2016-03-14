@@ -5,11 +5,24 @@ $(function()
 
 function Contenido(num){
 	var Botones =` 		<div class="btn-group" role="group" aria-label="...">
+						<button type="button" id="Inicio" class="btn btn-primary">Inicio</button>
   						<button type="button" id="Binomial" class="btn btn-primary">Binomial</button>
   						<button type="button" id="Poisson" class="btn btn-primary">Poisson</button>
   						<button type="button" id="Normal" class="btn btn-primary">Normal Estándar</button>
+  						<button type="button" id="Uniforme" class="btn btn-primary">Uniforme Discreta</button>
+  						<button type="button" id="Continua" class="btn btn-primary">Continua</button>
+  						<button type="button" id="UniformeContinua" class="btn btn-primary">Uniforme Continua</button>
 						</div> `
 	switch(num){
+		case 0:
+			var str = `	<div class='animated rotateIn'>	
+						<h2>Presentado por: </h2>
+						<h2>Franklyn Lombana Molina </h2>
+						<h2>Andres Mauricio Valenzuela</h2>
+						<h2>Daniel Paramo Torres</h2>
+						</div>
+						`
+		break; 
 		case 1: 
 			var str = `	<div class='animated zoomInRight'>	
 						<h1>Distribución Binomial</h1>
@@ -17,7 +30,7 @@ function Contenido(num){
 						En estadística, la distribución binomial es una distribución de probabilidad discreta que cuenta el número de éxitos en una secuencia de n ensayos de Bernoulli independientes entre sí, con una probabilidad fija p de ocurrencia del éxito entre los ensayos. Un experimento de Bernoulli se caracteriza por ser dicotómico, esto es, sólo son posibles dos resultados. A uno de estos se denomina éxito y tiene una probabilidad de ocurrencia p y al otro, fracaso, con una probabilidad q = 1 - p. En la distribución binomial el anterior experimento se repite n veces, de forma independiente, y se trata de calcular la probabilidad de un determinado número de éxitos. Para n = 1, la binomial se convierte, de hecho, en una distribución de Bernoulli.
 						<button type="button" id="EjBinomial" class="btn btn-info Micss" data-toggle="modal" data-target="#MiVentana">Ejemplo</button>
 						</p>
-						<img src="http://4.bp.blogspot.com/-IFBNMkkc-d4/UZM--sjiw4I/AAAAAAAAD_Y/e6Gg6b_mV7c/s1600/Captura+de+pantalla+de+2013-05-15+09:51:54.png">
+						<img id="Graficas" src="http://4.bp.blogspot.com/-IFBNMkkc-d4/UZM--sjiw4I/AAAAAAAAD_Y/e6Gg6b_mV7c/s1600/Captura+de+pantalla+de+2013-05-15+09:51:54.png">
 						</div>
 						`
 		break;
@@ -28,7 +41,7 @@ function Contenido(num){
 						En teoría de probabilidad y estadística, la distribución de Poisson es una distribución de probabilidad discreta que expresa, a partir de una frecuencia de ocurrencia media, la probabilidad de que ocurra un determinado número de eventos durante cierto período de tiempo. Concretamente, se especializa en la probabilidad de ocurrencia de sucesos con probabilidades muy pequeñas, o sucesos "raros".
 						<button type="button" id="EjPoisson" class="btn btn-info Micss" data-toggle="modal" data-target="#MiVentana">Ejemplo</button>
 						</p>
-						<img src="https://descalzarte5678.files.wordpress.com/2014/12/poisson-2.jpg">
+						<img id="Graficas" src="https://descalzarte5678.files.wordpress.com/2014/12/poisson-2.jpg">
 						</div>
 						`
 		break;
@@ -39,7 +52,44 @@ function Contenido(num){
 						En estadística y probabilidad se llama distribución normal, distribución de Gauss o distribución gaussiana, a una de las distribuciones de probabilidad de variable continua que con más frecuencia aparece aproximada en fenómenos reales.
 						<button type="button" id="EjNormal" class="btn btn-info Micss" data-toggle="modal" data-target="#MiVentana">Ejemplo</button>
 						</p>
-						<img src="https://qualitasaagg.files.wordpress.com/2015/01/curva-distribucic3b3n-normal.jpg">
+						<img id="Graficas" src="https://qualitasaagg.files.wordpress.com/2015/01/curva-distribucic3b3n-normal.jpg">
+						</div>
+						`
+		break;
+		case 4:
+			var str = `	<div class='animated fadeInRightBig'>	
+						<h1>Distribución Uniforme Discreta</h1>
+						<p>
+						Tenemos esta distribución cuando el resultado de una experiencia aleatoria puede ser un conjunto finito de n posibles resultados, todos ellos igualmente probables.
+						<button type="button" id="EjUniforme" class="btn btn-info Micss" data-toggle="modal" data-target="#MiVentana">Ejemplo</button>
+						</p>
+						<img id="Graficas" src="http://www.ub.edu/stat/GrupsInnovacio/Statmedia/demo/Temas/Capitulo3/Images/C3funiforme.gif">
+						</div>
+						`
+		break;
+		case 5:
+			var str = `	<div class='animated zoomInDown'>	
+						<h1>Distribución Continua</h1>
+						<p>
+						En teoría de la probabilidad una distribución de probabilidad se llama continua si su función de distribución es continua. Puesto que la función de distribución de una variable aleatoria X viene dada por <img id="Formula" src="https://upload.wikimedia.org/math/6/e/e/6eecbc08ae1a78514537162cf3adcba0.png">, la definición implica que en una distribución
+						de probabilidad continua X se cumple P[X = a] = 0 para todo número real "a", esto es, la probabilidad de que X tome el valor "a" es cero para cualquier valor de "a". Si la distribución de X es continua, se llama a X variable aleatoria continua.
+						En las distribuciones de probabilidad continuas, la distribución de probabilidad es la integral de la función de densidad, por lo que tenemos entonces que:
+						<img id="Formulas" src="https://upload.wikimedia.org/math/4/b/0/4b0422c64cd974ebaceac1ee1327d6ae.png">
+						<button type="button" id="EjContinua" class="btn btn-info Micss" data-toggle="modal" data-target="#MiVentana">Ejemplo</button>
+						</p>
+						<img id="Graficas" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Exponential_cdf.svg/300px-Exponential_cdf.svg.png">
+						</div>
+						`
+		break;
+		case 6:
+			var str = `	<div class='animated bounceInDown'>	
+						<h1>Distribución Uniforme Continua</h1>
+						<p>
+						En la distribución uniforme continua todos los intervalos de igual longitud en la distribución en su rango son igualmente probables. El
+						dominio está definido por dos parámetros, a y b, que son sus valores minimo y maximo.
+						<button type="button" id="EjUniformeContinua" class="btn btn-info Micss" data-toggle="modal" data-target="#MiVentana">Ejemplo</button>
+						</p>
+						<img id="Graficas" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Uniform_distribution_PDF.png/1024px-Uniform_distribution_PDF.png">
 						</div>
 						`
 		break;
@@ -47,6 +97,10 @@ function Contenido(num){
 	$('#Texto').html(Botones+str);
 
 //Navegación
+	$('#Inicio').click(function(){
+		Contenido(0);
+	});
+
 	$('#Binomial').click(function(){
 		Contenido(1);
 	});
@@ -57,6 +111,17 @@ function Contenido(num){
 		Contenido(3);
 	});
 
+	$('#Uniforme').click(function(){
+		Contenido(4);
+	});
+	$('#Continua').click(function(){
+		Contenido(5);
+	});
+	$('#UniformeContinua').click(function(){
+		Contenido(6);
+	});
+	
+//Botones de Ejemplos
 	$('#EjBinomial').click(function(){
 		Ejemplos(1,'Distribución Binomial');
 	});
@@ -69,12 +134,22 @@ function Contenido(num){
 		Ejemplos(3,'Distribución Normal');
 	});
 
-//Ejemplos
+	$('#EjUniforme').click(function(){
+		Ejemplos(4,'Distribución Uniforme Discreta');
+	});
+
+	$('#EjContinua').click(function(){
+		Ejemplos(5,'Distribución Continua');
+	});
+
+	$('#EjUniformeContinua').click(function(){
+		Ejemplos(6,'Distribución Uniforme Continua');
+	});
 
 
+}Contenido(0);
 
-}Contenido(1);
-
+//Funciones de los Ejemplos
 
 function Ejemplos (num,title){
 	
@@ -91,7 +166,51 @@ function Ejemplos (num,title){
 	switch(num){
 		case 1:
 			Titulo = 'Distribución Binomial';
-			var str = `<p class="pModal">
+			var str = MuestraEjemploBinomial();
+		break;
+		case 2:
+			Titulo = 'Distribución de Poisson';
+			var str = "Ejemplo Poisson";
+		break;
+		case 3:
+			Titulo = 'Distribución Normal';
+			var str = "Ejemplo Normal";
+		break;
+		case 4:
+			Titulo = 'Distribución Uniforme Discreta';
+			var str = "Ejemplo Uniforme Discreta";
+		break;
+		case 5:
+			Titulo = 'Distribución Continua';
+			var str = "Ejemplo Distribución Continua";
+		break;
+		case 6:
+			Titulo = 'Distribución Uniforme Continua';
+			var str = "Ejemplo Distribución Uniforme Continua";
+		break;
+	}
+		var footer = `</div>
+             <div class="modal-footer">
+            </div>
+           </div>
+          </div>
+         </div>`
+
+$('#Ejemplos').html(head+str+footer);
+
+$('#CalculaBinomial').click(function(){
+	$('#Result').val(CalculaBinomial($('#k').val(),$('#n').val(),$('#p').val(),$('#q').val()));
+	$('#ResultPorc').val(CalculaBinomial($('#k').val(),$('#n').val(),$('#p').val(),$('#q').val())*100 + "%");
+})
+
+$()
+
+}Ejemplos(1,'Distribución Binomial');
+
+
+function MuestraEjemploBinomial(){
+
+	return 			`<p class="pModal">
 							Tenmos el siguiente caso: Calcule la probabilidad de que en una familia que tiene cuatro hijos, tres de ellos sean "niños"
 					   </p>
 					   <br>
@@ -118,38 +237,10 @@ function Ejemplos (num,title){
 					   <p class="pModel">Nos piden P(X=3) = <input type="number" class="inputModalResult" id="Result" placeholder="Resultado">
 					   <input type="text" class="inputModalResult" id="ResultPorc" placeholder="Porcentaje">
 					   <button type="button" id="CalculaBinomial" class="btn btn-success">Calcular</button>
-					   </p>
-						
+					  </p>
 					   </div>
-
 					   `;
-		break;
-		case 2:
-			Titulo = 'Distribución de Poisson';
-			var str = "Ejemplo Poisson";
-		break;
-		case 3:
-			Titulo = 'Distribución Normal';
-			var str = "Ejemplo Normal";
-		break;
-	}
-		var footer = `</div>
-             <div class="modal-footer">
-            </div>
-           </div>
-          </div>
-         </div>`
-
-$('#Ejemplos').html(head+str+footer);
-
-$('#CalculaBinomial').click(function(){
-	$('#Result').val(CalculaBinomial($('#k').val(),$('#n').val(),$('#p').val(),$('#q').val()));
-	$('#ResultPorc').val(CalculaBinomial($('#k').val(),$('#n').val(),$('#p').val(),$('#q').val())*100 + "%");
-})
-
-$()
-
-}Ejemplos(1,'Distribución Binomial');
+}
 
 function CalculaBinomial(k,n,p,q){
 	return combinatoria(n,k)*Math.pow(p,k)*Math.pow(q,n-k);
