@@ -172,7 +172,7 @@ function Contenido(num){
 
 //Funciones de los Ejemplos
 
-function Ejemplos (num,title){
+function Ejemplos (num,title) {
 	
 	var head = `<div class="modal fade" id="MiVentana" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
               <div class="modal-dialog">
@@ -191,7 +191,7 @@ function Ejemplos (num,title){
 		break;
 		case 2:
 			Titulo = 'Distribución de Poisson';
-			var str = "Ejemplo Poisson";
+			var str = poisson();
 		break;
 		case 3:
 			Titulo = 'Distribución Normal';
@@ -199,15 +199,15 @@ function Ejemplos (num,title){
 		break;
 		case 4:
 			Titulo = 'Distribución Uniforme Discreta';
-			var str = "Ejemplo Uniforme Discreta";
+			var str = discDiscreta();
 		break;
 		case 5:
 			Titulo = 'Distribución Continua';
-			var str = "Ejemplo Distribución Continua";
+			var str = "Continua";
 		break;
 		case 6:
 			Titulo = 'Distribución Uniforme Continua';
-			var str = "Ejemplo Distribución Uniforme Continua";
+			var str = distContinua();
 		break;
 		case 7:
 			Titulo = 'Distribución Binomial Negativa';
@@ -227,6 +227,24 @@ $('#CalculaBinomial').click(function(){
 	$('#Result').val(CalculaBinomial($('#k').val(),$('#n').val(),$('#p').val(),$('#q').val()));
 	$('#ResultPorc').val(CalculaBinomial($('#k').val(),$('#n').val(),$('#p').val(),$('#q').val())*100 + "%");
 })
+
+$('#poissonDo').click(function(){
+	$('#ResultPs').val(calculaPoisson($("#landa").val(),$("#kP").val()));
+})
+
+$('#distDisc').click(function(){
+	var value = calculaDistDisc($("#nUd").val());
+	$('#ResultPdd').val(value.probabilidad);
+	$('#ResultMedia').val(value.media);
+	$('#ResultDE').val(value.desviacionEs);
+})
+
+$('#disContDo').click(function(){
+	var value = calculaDistCont($("#aInit").val(),$("#bInit").val(),$("#cInit").val(),$("#dInit").val())
+	$('#ResultDC').val(value.probabilidad);
+	$('#ResultDC1').val(value.mediaEsp);
+})
+
 
 $()
 
@@ -270,6 +288,17 @@ function MuestraEjemploBinomial(){
 function CalculaBinomial(k,n,p,q){
 	return combinatoria(n,k)*Math.pow(p,k)*Math.pow(q,n-k);
 }
+function calculaPoisson(a,b) {
+	return Math.pow(Math.E,-a)*(Math.pow(a,b)) / factorial(b);
+}
+
+var calculaDistDisc = function (e) {
+	return {"probabilidad" : 1 / e, "media" : e + 1 / 2, "desviacionEs" : Math.sqrt((e + 1)* (e - 1) / 12)}
+}
+
+var calculaDistCont = function (a,b,c,d) {
+	return {"probabilidad" : (d - c) / (b - a), "mediaEsp" : b + a / 2}
+}
 
 function factorial(num){
 	var factorial = 1;
@@ -279,6 +308,100 @@ function factorial(num){
         }
  
         return factorial;
+}
+
+
+var poisson = function() {
+
+	return 	`<p class="pModal">
+							En el supermercado "Entre y Merque" cada 30 minutos 7 clientes ingresan y hacen compras superiores a $500.000 pesos. Encuentre la probalibidad de:
+					   </p>
+					   <br>
+					   <p class="pModal">
+					   		1) Que al supermercado entre y merque ingresen 15 personas a comprar mas de $500.000 pesos en media hora
+					   		2) Q ingresen a comprar 4 personas en media hora mas de $500.000 mil pesos 
+					   </p>
+					   <br>
+					   <p class="pModal">
+						ahora bien, encontremos las variables que nos da el problema, estas son las siguientes:
+						"Landa" => La cantidad de eventos esperada en cierto intervalo de tiempo
+						"Euler" => Que bien sabemos es una constante
+						"k" => La cantidad de eventos que suceden en cierto intervalo de tiempo
+					   </p>
+					   <br>
+					   <p class="pModal">La formula que nos permite encontrar la distribución de poisson es: <img class="imgModal" src="https://upload.wikimedia.org/math/7/1/8/718d6b971bdea12e0d52e8024119d17d.png">
+					   </p><span>
+					   <input type="number" class="form-control" id="landa" placeholder="Landa">
+					   <input type="number" class="form-control" id="kP" placeholder="k"></span>
+					   <p class="pModel">La probabilidad es de: <input type="text" class="inputModalResult" id="ResultPs" placeholder="Resultado">
+					   <button type="button" id="poissonDo" class="btn btn-success">Calcular</button>
+					  </p>
+					   `;
+
+}
+
+var distContinua = function() {
+
+	return 	`<p class="pModal">
+							En la universidad de cundinamarca se ha hecho una convocatoria para encontrar al desarrollador mas rápido del oeste, para esto se ha 
+							hecho una prueba de un código que encripte la información de un banco para que los participantes la realicen en un lapso comprendido entre las 4 pm y las 9:30 pm.
+							Encuentre la probalibidad de:
+					   </p>
+					   <br>
+					   <p class="pModal">
+					   		1) Que un estidiante acabe entre las 6:00 pm y las 8:30 pm
+					   		2) El valor medio esperado de alumnos que entreguen la prueba resuelta 
+					   </p>
+					   <br>
+					   <p class="pModal">
+						Para esto vamos a necesitar las siguientes formulas:
+					   </p>
+					   <p>Probabilidad: [ (d-c) / (b-a) ]</p>
+					   <p>Valor medio esperado: [ (b-a) / 2 ]</p>
+					   <br>
+						<span>
+					   <input type="number" class="form-control" id="aInit" placeholder="a">
+					   <input type="number" class="form-control" id="bInit" placeholder="b">
+					   <input type="number" class="form-control" id="cInit" placeholder="c">
+					   <input type="number" class="form-control" id="dInit" placeholder="d"></span>
+					   <p class="pModel">La probabilidad es de: 
+					   <input type="text" class="inputModalResult" id="ResultDC" placeholder="Resultado"></p></br>
+						<p class="pModel">El valor medio esperado es: 
+					   <input type="text" class="inputModalResult" id="ResultDC1" placeholder="Resultado">
+					   <button type="button" id="disContDo" class="btn btn-success">Calcular</button>
+					  
+					   `;
+
+}
+
+var discDiscreta = function() {
+
+	return 	`<p class="pModal">
+							Ejemplo de los dados, hallar:
+					   </p>
+					   <br>
+					   <p class="pModal">
+					   		1) Probabilidad </br>
+					   		2) Media </br>
+					   		3) Desviación estandar 
+					   </p>
+					   <br>
+					   <p class="pModal">Las formulas que usaremos son las siguientes:
+					   </p>
+					   <span>
+					   <p>Probabilidad: => (1 / n)</p>
+					   <p>Media: => [(n + 1) / 2 ]</p>
+					   <p>Desviación estandar: =>  [ (n + 1) * (n - 1) / 12] </p>
+					   </span>
+					   <input type="number" class="form-control" id="nUd" placeholder="n">
+					   <p class="pModel">
+					   <input type="text" class="inputModalResult" id="ResultPdd" placeholder="Probabilidad">
+					   <input type="text" class="inputModalResult" id="ResultMedia" placeholder="Media">
+					   <input type="text" class="inputModalResult" id="ResultDE" placeholder="Desv. estandar" maxLenght="5">
+					   <button type="button" id="distDisc" class="btn btn-success">Calcular</button>
+					  </p>
+					   `;
+
 }
 
 function combinatoria(n,k){
