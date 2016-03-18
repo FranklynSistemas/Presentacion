@@ -271,7 +271,7 @@ function MuestraEjemploBinomial(){
 					   		<li>q = 0,5, La probabilidad de error, 50% dado en decimales</li>
 					   </ul>
 					   <p class="pModal">La formula que nos permite encontrar la probabilidad binomial es: <img class="imgModal" src="img/FormulaBinomial.PNG">
-					    ahora bastara con sustituir los valores de la formula con los qué, ya hemos optenido del ejericio.
+					    ahora bastara con sustituir los valores de la formula con los qué, ya hemos obtenido del ejericio.
 					   </p>
 					   <input type="number" class="form-control inputModal" id="k" placeholder="K" required>
 					   <input type="number" class="form-control inputModal" id="n" placeholder="n" required>
