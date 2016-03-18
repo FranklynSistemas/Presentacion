@@ -27,6 +27,16 @@ p {
 	height: 21px;
 }
 
+#FormulasMedia{
+	width: 154px;
+    height: 46px;
+}
+
+#FormulaBinomial{
+	width: 184px;
+    height: 53px;
+}
+
 .imgModal {
 	width: 200px; 
 	height:70px;

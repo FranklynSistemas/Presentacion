@@ -7,6 +7,7 @@ function Contenido(num){
 	var Botones =` 		<div class="btn-group" role="group" aria-label="...">
 						<button type="button" id="Inicio" class="btn btn-primary">Inicio</button>
   						<button type="button" id="Binomial" class="btn btn-primary">Binomial</button>
+  						<button type="button" id="BinomialNegativa" class="btn btn-primary">Binomial Negativa</button>
   						<button type="button" id="Poisson" class="btn btn-primary">Poisson</button>
   						<button type="button" id="Normal" class="btn btn-primary">Normal Estándar</button>
   						<button type="button" id="Uniforme" class="btn btn-primary">Uniforme Discreta</button>
@@ -93,6 +94,19 @@ function Contenido(num){
 						</div>
 						`
 		break;
+		case 7:
+			var str = `	<div class='animated bounceInDown'>	
+						<h1>Distribución Binomial Negativa</h1>
+						<p>
+						 Esta distribución puede considerarse como una extensión o ampliación de la distribución geométrica . La distribución binomial negativa es un modelo adecuado para tratar aquellos procesos en los que se repite un determinado ensayo o prueba hasta conseguir un número determinado de resultados favorables (por vez primera).
+						<br>La función de cuantía de la distribución binomial negativa es: <img id="FormulaBinomial" src="https://www.uv.es/ceaces/base/modelos%20de%20probabilidad/Image138.gif">
+						<br>La media y la Varianza: <img id="FormulasMedia" src="https://www.uv.es/ceaces/base/modelos%20de%20probabilidad/Image144.gif">
+						<button type="button" id="EjBinomialNegativa" class="btn btn-info Micss" data-toggle="modal" data-target="#MiVentana">Ejemplo</button>
+						</p>
+						<img id="Graficas" src="http://gmein.uib.es/bioinformatica/estadistica/imagenes/dbinomialnegativa.gif">
+						</div>
+						`
+		break;
 	}
 	$('#Texto').html(Botones+str);
 
@@ -120,6 +134,9 @@ function Contenido(num){
 	$('#UniformeContinua').click(function(){
 		Contenido(6);
 	});
+	$('#BinomialNegativa').click(function(){
+		Contenido(7);
+	});
 	
 //Botones de Ejemplos
 	$('#EjBinomial').click(function(){
@@ -144,6 +161,10 @@ function Contenido(num){
 
 	$('#EjUniformeContinua').click(function(){
 		Ejemplos(6,'Distribución Uniforme Continua');
+	});
+
+	$('#EjBinomialNegativa').click(function(){
+		Ejemplos(7,'Distribución Binomial Negativa');
 	});
 
 
@@ -187,6 +208,10 @@ function Ejemplos (num,title){
 		case 6:
 			Titulo = 'Distribución Uniforme Continua';
 			var str = "Ejemplo Distribución Uniforme Continua";
+		break;
+		case 7:
+			Titulo = 'Distribución Binomial Negativa';
+			var str = "Ejemplo Distribución Binomial Negativa";
 		break;
 	}
 		var footer = `</div>
